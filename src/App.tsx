@@ -1,13 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className='hello'>
-      Hello
-    </div>
-  );
+    const [count, setCount] = React.useState(0)
+
+    const plusFunc = (val: number) => {
+        setCount(count + val);
+    };
+
+    return (
+        <div className='hello'>
+            <button onClick={() => plusFunc(1)}>+</button>
+            {count}
+            <button onClick={() => plusFunc(-1)}>-</button>
+        </div>
+    );
 }
 
 export default App;
