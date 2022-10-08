@@ -1,21 +1,20 @@
 import React from 'react';
 import './App.css';
 
+const tg = window.Telegram.WebApp;
+
 function App() {
 
-  const [count, setCount] = React.useState(0)
-
-  const plusFunc = (val) => {
-    setCount(count + val);
-  };
+  const sendData = () => {
+      tg.sendData(JSON.stringify({'hello': 'hello dima'}))
+  }
 
   return (
-      <div className='hello'>
-        <button onClick={() => plusFunc(1)}>+</button>
-        {count}
-        <button onClick={() => plusFunc(-1)}>-</button>
+      <div>
+          <button onClick={sendData}>Послать</button>
       </div>
   );
+
 }
 
 export default App;
