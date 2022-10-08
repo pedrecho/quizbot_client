@@ -10,8 +10,8 @@ function App() {
   }
 
   return (
-      <div>
-          <button onClick={sendData}>Послать 1</button>
+      <div className="hello">
+          <button onClick={sendData}>Послать 2</button>
       </div>
   );
 
