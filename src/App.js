@@ -6,7 +6,7 @@ const tg = window.Telegram.WebApp;
 function App() {
 
   const sendData = () => {
-      tg.sendData(JSON.stringify({'hello': 'hello dima'}))
+      tg.onEvent('backButtonClicked', 'hello')
   }
 
   return (
