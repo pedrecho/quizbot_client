@@ -6,12 +6,12 @@ const tg = window.Telegram.WebApp;
 function App() {
 
   const sendData = () => {
-      tg.onEvent('backButtonClicked', 'hello')
+      tg.sendData('hello dima, go dota')
   }
 
   return (
       <div>
-          <button onClick={sendData}>Послать</button>
+          <button onClick={sendData}>Послать 1</button>
       </div>
   );
 
