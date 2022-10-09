@@ -14,6 +14,7 @@ function App() {
     const playGame = (id) => {
         setStageApp('game');
         setGameId(id);
+        tg.expand()
     }
 
     return (
