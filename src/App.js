@@ -4,9 +4,9 @@ import './App.css';
 const tg = window.Telegram.WebApp;
 function App() {
 
-  const [name, setName] = React.useState(tg.initDataUnsafe?.user?.first_name)
+    const [name, setName] = React.useState(tg.initDataUnsafe?.user?.first_name)
 
-  return (
+    return (
       <div id='mainMenuDiv'>
           <p id='greetingText'>Бобро пожаловать</p>
           <input id='nameInput' autoComplete="off" defaultValue={name} onChange={e => setName(e.target.value)}/>
