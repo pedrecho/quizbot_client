@@ -6,7 +6,7 @@ export function UserCard({index, name, id, photoUrl}){
 
     return(
         <div id='userCardDiv'>
-            <img id='userCardPhoto' src={photoUrl}/>
+            <img alt='фото' id='userCardPhoto' src={photoUrl}/>
             <p id='userCardName'>{name} {index === 0 ? '(Админ)' : ''}</p>
         </div>
     )
