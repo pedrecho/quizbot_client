@@ -11,6 +11,7 @@
     height: 80%;
     border-radius: 50%;
     aspect-ratio : 1 / 1;
+    margin-left: 10px;
 }
 #userCardName{
     width: 80%;

@@ -61,6 +61,7 @@ export function Game({gameId, name, stageApp}){
         <div style={{visibility: stageApp === 'game' ? 'visible' : 'hidden'}}>
             <div id='startGameDiv'>
                 <div id='startGameContentDiv'>
+                    <p>{tg.initDataUnsafe?.user?.photo_url}</p>
                     <p id='startGameId'>Код игры: {gameId}</p>
                     <p id='startThemeQuestions'>Тема вопросов: {themeQuestions} </p>
                     <div id='startGameUsersDiv'>
