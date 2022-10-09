@@ -7,13 +7,15 @@ const tg = window.Telegram.WebApp;
 
 function App() {
 
+    window.screen.orientation.lock('portrait')
+
     const [name, setName] = React.useState(tg.initDataUnsafe?.user?.first_name)
     const [stageApp, setStageApp] = React.useState('main')
     const [gameId, setGameId] = React.useState(0);
 
     const playGame = (id) => {
-        setStageApp('game');
-        setGameId(id);
+        setStageApp('game')
+        setGameId(id)
         tg.expand()
     }
 
