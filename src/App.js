@@ -1,21 +1,23 @@
 import React from 'react';
 import './App.css';
+import {MainMenu} from "./Components/MainMenu/MainMenu.js";
+import {Game} from "./Components/Game/Game.js"
+import {Route, Routes} from "react-router-dom";
 
 const tg = window.Telegram.WebApp;
+
 function App() {
 
     const [name, setName] = React.useState(tg.initDataUnsafe?.user?.first_name)
 
     return (
-      <div id='mainMenuDiv'>
-          <p id='greetingText'>Бобро пожаловать</p>
-          <input id='nameInput' autoComplete="off" defaultValue={name} onChange={e => setName(e.target.value)}/>
-          <div id='buttonsDiv'>
-              <button className='buttonMainMenu'>Присоединиться</button>
-              <button className='buttonMainMenu'>Создать комнату</button>
-          </div>
-      </div>
-  );
+        <div>
+            <Routes>
+                <Route path='/' element={<MainMenu name={name} setName={setName}/>}></Route>
+                <Route path='/game/:id' element={<Game/>}></Route>
+            </Routes>
+        </div>
+    );
 
 }
 
