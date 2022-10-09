@@ -14,27 +14,9 @@ export function Game({gameId, name, stageApp}){
             photoUrl: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg'
         },
         {
-            id: '1',
-            name: 'Дмитрий',
-            photoUrl: 'https://m.buro247.ru/images/dasha/news/putin4.jpg'
-        },        {
             id: '2131231',
             name: 'Григорий',
             photoUrl: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg'
-        },
-        {
-            id: '1',
-            name: 'Дмитрий',
-            photoUrl: 'https://m.buro247.ru/images/dasha/news/putin4.jpg'
-        },        {
-            id: '2131231',
-            name: 'Григорий',
-            photoUrl: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg'
-        },
-        {
-            id: '1',
-            name: 'Дмитрий',
-            photoUrl: 'https://m.buro247.ru/images/dasha/news/putin4.jpg'
         },
         {
             id: '2131231',
@@ -42,9 +24,14 @@ export function Game({gameId, name, stageApp}){
             photoUrl: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg'
         },
         {
-            id: '1',
-            name: 'Дмитрий',
-            photoUrl: 'https://m.buro247.ru/images/dasha/news/putin4.jpg'
+            id: '2131231',
+            name: 'Григорий',
+            photoUrl: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg'
+        },
+        {
+            id: '2131231',
+            name: 'Григорий',
+            photoUrl: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg'
         },
         {
             id: '2131231',
@@ -53,9 +40,25 @@ export function Game({gameId, name, stageApp}){
         },
     ]
 
-    users.push({id: tg.initDataUnsafe?.user?.id, name: name, photoUrl: tg.initDataUnsafe?.user?.photo_url})
+    let photos = [
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-01.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-02.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-03.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-04.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-05.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-06.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-07.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-08.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-09.jpg',
+        'https://nemcd.com/wp-content/uploads/2013/11/Animals-10.jpg',
+    ]
+
+    photos = photos.sort((a , b) => 0.5 - Math.random())
+
+    users.push({id: tg.initDataUnsafe?.user?.id, name: name})
 
     const [themeQuestions] = React.useState('История');
+
 
     return (
         <div style={{visibility: stageApp === 'game' ? 'visible' : 'hidden'}}>
@@ -66,11 +69,15 @@ export function Game({gameId, name, stageApp}){
                     <p id='startThemeQuestions'>Тема вопросов: {themeQuestions} </p>
                     <div id='startGameUsersDiv'>
                         {users.map((user, index) => (
-                            <UserCard index={index} name={user.name} id={user.id} photoUrl={user.photoUrl}/>
+                            <UserCard index={index} name={user.name} id={user.id} photoUrl={photos[index]}/>
                         ))}
                     </div>
-                    <button>Начать игру</button>
-                    <p>Подождите, пока создатель начнет игру</p>
+                    {users[0].id === tg.initDataUnsafe?.user?.id && (
+                        <button>Начать игру</button>
+                    )}
+                    {users[0].id !== tg.initDataUnsafe?.user?.id && (
+                        <p>Подождите, пока создатель начнет игру</p>
+                    )}
                 </div>
             </div>
             <div id='overlayGame'/>
