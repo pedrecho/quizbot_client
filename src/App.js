@@ -2,20 +2,24 @@ import React from 'react';
 import './App.css';
 import {MainMenu} from "./Components/MainMenu/MainMenu.js";
 import {Game} from "./Components/Game/Game.js"
-import {Route, Routes} from "react-router-dom";
 
 const tg = window.Telegram.WebApp;
 
 function App() {
 
     const [name, setName] = React.useState(tg.initDataUnsafe?.user?.first_name)
+    const [stageApp, setStageApp] = React.useState('main')
+    const [gameId, setGameId] = React.useState(0);
+
+    const playGame = (id) => {
+        setStageApp('game');
+        setGameId(id);
+    }
 
     return (
         <div>
-            <Routes>
-                <Route path='/' element={<MainMenu name={name} setName={setName}/>}></Route>
-                <Route path='/game/:id' element={<Game/>}></Route>
-            </Routes>
+            <MainMenu playGame={playGame} name={name} setName={setName} stageApp={stageApp}/>
+            <Game gameId={gameId} name={name} stageApp={stageApp}/>
         </div>
     );
 

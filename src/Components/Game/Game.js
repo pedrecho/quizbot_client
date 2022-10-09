@@ -1,13 +1,10 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
 
-export function Game(){
-
-    let { id } = useParams();
+export function Game({gameId, name, stageApp}){
 
     return (
-        <div>
-            <p>Игра: {id}</p>
+        <div style={{visibility: stageApp === 'game' ? 'visible' : 'hidden'}}>
+            <p>Игра для {name}: {gameId}</p>
         </div>
     );
 }
