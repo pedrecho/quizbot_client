@@ -1,12 +1,13 @@
 import * as React from "react";
 
-import './Game.css'
+import './StartGame.css'
 import { UserCard } from './UserCard'
 
 const tg = window.Telegram.WebApp;
 
-export function Game({gameId, name, stageApp}){
+export function StartGame({gameId, name, stageApp}){
 
+    const [themeQuestions] = React.useState('История');
     const users = [
         {
             id: '2131231',
@@ -39,7 +40,6 @@ export function Game({gameId, name, stageApp}){
             photoUrl: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg'
         },
     ]
-
     let photos = [
         'https://nemcd.com/wp-content/uploads/2013/11/Animals-01.jpg',
         'https://nemcd.com/wp-content/uploads/2013/11/Animals-02.jpg',
@@ -52,13 +52,8 @@ export function Game({gameId, name, stageApp}){
         'https://nemcd.com/wp-content/uploads/2013/11/Animals-09.jpg',
         'https://nemcd.com/wp-content/uploads/2013/11/Animals-10.jpg',
     ]
-
     photos = photos.sort((a , b) => 0.5 - Math.random())
-
     users.push({id: tg.initDataUnsafe?.user?.id, name: name})
-
-    const [themeQuestions] = React.useState('История');
-
 
     return (
         <div style={{visibility: stageApp === 'game' ? 'visible' : 'hidden'}}>
@@ -73,10 +68,10 @@ export function Game({gameId, name, stageApp}){
                         ))}
                     </div>
                     {users[0].id === tg.initDataUnsafe?.user?.id && (
-                        <button>Начать игру</button>
+                        <button id='startGameButton'>Начать игру</button>
                     )}
                     {users[0].id !== tg.initDataUnsafe?.user?.id && (
-                        <p>Подождите, пока создатель начнет игру</p>
+                        <p id='startGameWaitingTitle'>Подождите, пока создатель <br/> начнет игру.</p>
                     )}
                 </div>
             </div>

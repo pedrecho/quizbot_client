@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {MainMenu} from "./Components/MainMenu/MainMenu.js";
-import {Game} from "./Components/Game/Game.js"
+import {StartGame} from "./Components/Game/StartGame.js"
 
 const tg = window.Telegram.WebApp;
 
@@ -22,7 +22,7 @@ function App() {
     return (
         <div>
             <MainMenu playGame={playGame} name={name} setName={setName} stageApp={stageApp}/>
-            <Game gameId={gameId} name={name} stageApp={stageApp}/>
+            <StartGame gameId={gameId} name={name} stageApp={stageApp}/>
         </div>
     );
 

@@ -45,3 +45,15 @@
     overflow: auto;
     height: 60%;
 }
+#startGameWaitingTitle{
+    text-align: center;
+    font-size: 18px;
+}
+#startGameButton{
+    width: 60%;
+    height: 8%;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 20%;
+}
