@@ -15,7 +15,7 @@ export function Question({question}){
         <div id='questionDiv'>
             <p id='questionTitle'>{question.title}</p>
             {question.answers.map((answer, index) => (
-                <div onClick={() => chooseAnswer(index)} id='answerDiv' className={chosenAnwser === index ? 'chosen' : '' }>
+                <div key={index} onClick={() => chooseAnswer(index)} id='answerDiv' className={chosenAnwser === index ? 'chosen' : '' }>
                     <p className='answer'>{answer}</p>
                 </div>
             ))}

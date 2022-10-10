@@ -22,10 +22,10 @@ export function Game({stageApp}){
     ]
 
     const timer = () =>{
-        var seconds = 5;
+        let seconds = 5;
         let secondsTitle = document.getElementById('secondsTitle');
         let gameDiv = document.getElementById('gameDiv');
-        var seconds_timer_id = setInterval(function() {
+        let seconds_timer_id = setInterval(function() {
             if (seconds > 0) {
                 seconds --;
                 if(seconds === 0){
@@ -34,7 +34,8 @@ export function Game({stageApp}){
                     gameDiv.classList.add('animated');
                 }
                 else {
-                    secondsTitle.textContent = seconds;
+                    secondsTitle.textContent = seconds.toString();
+                    setStep(0);
                 }
             } else {
                 clearInterval(seconds_timer_id);

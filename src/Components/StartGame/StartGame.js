@@ -52,7 +52,7 @@ export function StartGame({gameId, name, stageApp, setStageApp}){
         'https://nemcd.com/wp-content/uploads/2013/11/Animals-09.jpg',
         'https://nemcd.com/wp-content/uploads/2013/11/Animals-10.jpg',
     ]
-    photos = photos.sort((a , b) => 0.5 - Math.random())
+    photos = photos.sort(() => 0.5 - Math.random())
     users.push({id: tg.initDataUnsafe?.user?.id, name: name})
 
     return (
@@ -64,7 +64,9 @@ export function StartGame({gameId, name, stageApp, setStageApp}){
                     <p id='startThemeQuestions'>Тема вопросов: {themeQuestions} </p>
                     <div id='startGameUsersDiv'>
                         {users.map((user, index) => (
-                            <UserCard index={index} name={user.name} id={user.id} photoUrl={photos[index]}/>
+                            <div key={index}>
+                                <UserCard index={index} name={user.name} id={user.id} photoUrl={photos[index]}/>
+                            </div>
                         ))}
                     </div>
                     {users[0].id !== tg.initDataUnsafe?.user?.id && (
