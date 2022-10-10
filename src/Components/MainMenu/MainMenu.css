@@ -9,6 +9,7 @@
     transform: translate(-50%, -50%);
     grid-template-rows: 20% 20% 60%;
     grid-row-gap: 4%;
+    min-height: 400px;
 }
 #greetingText{
     text-align: center;
@@ -62,6 +63,7 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
     z-index: 101;
+    min-height: 200px;
     background-color: white;
     visibility: hidden;
     border-radius: 20px;

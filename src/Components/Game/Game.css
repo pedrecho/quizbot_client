@@ -18,7 +18,7 @@
     z-index: 101;
     width: 90%;
     height: 60%;
-    background-color: white;
+    background-color: var(--tg-theme-secondary-bg-color);
     position: absolute;
     top: 50%;
     left: 50%;
