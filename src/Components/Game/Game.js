@@ -16,7 +16,7 @@ export function Game({stageApp}){
     const questions = [
         {
             title: 'В каком году была крещена Русь?',
-            answers: ['998', '997', '1012', '1001'],
+            answers: ['988', '996', '1012', '1001'],
             rightAnswer: 0,
         }
     ]
