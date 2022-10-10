@@ -1,7 +1,7 @@
 import * as React from "react";
 import './MainMenu.css'
 
-export function MainMenu({name, setName, playGame, stageApp}){
+export function MainMenu({name, setName, startGame, stageApp}){
 
     const [stage, setStage] = React.useState('main');
     const [gameId, setGameId] = React.useState('')
@@ -12,7 +12,7 @@ export function MainMenu({name, setName, playGame, stageApp}){
 
     const enterRoom = function (){
         setStage('main');
-        playGame(gameId);
+        startGame(gameId);
     }
 
     return (
@@ -22,7 +22,7 @@ export function MainMenu({name, setName, playGame, stageApp}){
                 <input id='nameInput' autoComplete="off" defaultValue={name} onChange={e => setName(e.target.value)}/>
                 <div id='buttonsDiv'>
                     <button className='buttonMainMenu' onClick={showEnterWindow}>Присоединиться</button>
-                    <button className='buttonMainMenu' onClick={() => playGame(10)}>Создать комнату</button>
+                    <button className='buttonMainMenu' onClick={() => startGame(10)}>Создать комнату</button>
                 </div>
             </div>
             <div onClick={() => setStage('main')} id='overlay' style={{visibility: stage === 'main' ? 'hidden' : 'visible'}}/>

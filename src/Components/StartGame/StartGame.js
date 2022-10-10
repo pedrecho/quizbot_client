@@ -5,7 +5,7 @@ import { UserCard } from './UserCard'
 
 const tg = window.Telegram.WebApp;
 
-export function StartGame({gameId, name, stageApp}){
+export function StartGame({gameId, name, stageApp, setStageApp}){
 
     const [themeQuestions] = React.useState('История');
     const users = [
@@ -56,7 +56,7 @@ export function StartGame({gameId, name, stageApp}){
     users.push({id: tg.initDataUnsafe?.user?.id, name: name})
 
     return (
-        <div style={{visibility: stageApp === 'game' ? 'visible' : 'hidden'}}>
+        <div style={{visibility: stageApp === 'startGame' ? 'visible' : 'hidden'}}>
             <div id='startGameDiv'>
                 <div id='startGameContentDiv'>
                     <p>{tg.initDataUnsafe?.user?.photo_url}</p>
@@ -67,10 +67,10 @@ export function StartGame({gameId, name, stageApp}){
                             <UserCard index={index} name={user.name} id={user.id} photoUrl={photos[index]}/>
                         ))}
                     </div>
-                    {users[0].id === tg.initDataUnsafe?.user?.id && (
-                        <button id='startGameButton'>Начать игру</button>
-                    )}
                     {users[0].id !== tg.initDataUnsafe?.user?.id && (
+                        <button id='startGameButton' onClick={() => setStageApp('game')}>Начать игру</button>
+                    )}
+                    {users[0].id === tg.initDataUnsafe?.user?.id && (
                         <p id='startGameWaitingTitle'>Подождите, пока создатель <br/> начнет игру.</p>
                     )}
                 </div>

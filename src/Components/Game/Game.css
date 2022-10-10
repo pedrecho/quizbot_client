@@ -1,0 +1,43 @@
+#secondsTitle{
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+    opacity: 1;
+    z-index: 101;
+    transition: opacity 0.5s;
+}
+#secondsTitle.animated{
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+#gameDiv{
+    z-index: 101;
+    width: 90%;
+    height: 60%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    border-radius: 20px;
+}
+#gameDiv.animated{
+    transition-delay: 0.8s;
+    opacity: 1;
+}
+#gameDivContent{
+    position: absolute;
+    width: 90%;
+    height: 95%;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
