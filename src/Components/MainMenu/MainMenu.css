@@ -3,13 +3,13 @@
     display: grid;
     height: 40%;
     width: 80%;
-    top: 30%;
+    top: 40%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     grid-template-rows: 20% 20% 60%;
     grid-row-gap: 4%;
-    min-height: 400px;
+    min-height: 350px;
 }
 #greetingText{
     text-align: center;
